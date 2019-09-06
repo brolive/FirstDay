@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Range(1, 10)]
     public float speed = 1.0f;
+    [Header("Movement Stuff")]
     public float jumpForce = 1.0f;
-
+    
     private bool grounded = false;
 
     // Start is called before the first frame update
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("TEST!");
     }
+    
 
     // Update is called once per frame
     void Update()
