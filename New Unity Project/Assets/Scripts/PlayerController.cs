@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded = false;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +25,13 @@ public class PlayerController : MonoBehaviour
                            2))
         {
             grounded = true;
+		
         }
         else
         {
             grounded = false;
         }
-
+        anim.SetBool("grounded", grounded);
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -51,6 +54,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x,
                                       jumpForce,
                                       rb.velocity.z);
+	    //anim.SetTrigger("jump");
         }
     }
 }
